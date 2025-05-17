@@ -44,6 +44,46 @@
             key-positions = <11 12 13>;
             bindings = <&tog TVP1>;
         };
+
+        LS_Shift {
+            bindings = <&sk LEFT_SHIFT>;
+            key-positions = <13 24>;
+        };
+
+        LS_Command {
+            bindings = <&sk LEFT_COMMAND>;
+            key-positions = <12 23>;
+        };
+
+        LS_Option {
+            bindings = <&sk LEFT_ALT>;
+            key-positions = <11 22>;
+        };
+
+        LS_Ctrl {
+            bindings = <&sk LEFT_CONTROL>;
+            key-positions = <21 10>;
+        };
+
+        RS_Shift {
+            bindings = <&sk LEFT_SHIFT>;
+            key-positions = <16 27>;
+        };
+
+        RS_Command {
+            bindings = <&sk LEFT_COMMAND>;
+            key-positions = <17 28>;
+        };
+
+        RS_Option {
+            bindings = <&sk LEFT_ALT>;
+            key-positions = <18 29>;
+        };
+
+        RS_Ctrl {
+            bindings = <&sk LEFT_CONTROL>;
+            key-positions = <30 19>;
+        };
     };
 
     macros {
@@ -87,7 +127,7 @@
             bindings = <
          &kp Q  &kp W  &kp F       &kp P      &kp B             &kp J    &kp L          &kp U       &kp Y    &kp SEMI
          &kp A  &kp R  &kp S       &kp T      &kp G             &kp M    &kp N          &kp E       &kp I    &kp O
-&kp TAB  &kp Z  &kp X  &kp C       &kp D      &kp V             &kp K    &kp M          &kp COMMA   &kp DOT  &kp FSLH  &kp TAB
+&kp TAB  &kp Z  &kp X  &kp C       &kp D      &kp V             &kp K    &kp H          &kp COMMA   &kp DOT  &kp FSLH  &kp TAB
                        &kp ESCAPE  &kp SPACE  &sk LEFT_SHIFT    &kp RET  &kp BACKSPACE  &kp ESCAPE
             >;
         };
