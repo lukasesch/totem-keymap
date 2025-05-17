@@ -121,6 +121,15 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        questionmark: questionmark {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QUESTIONMARK";
+            bindings = <&kp QUESTION>, <&kp EXCLAMATION>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -147,7 +156,7 @@
             bindings = <
          &kp Q  &kp W  &kp F       &kp P      &kp B             &kp J    &kp L          &kp U       &kp Y  &kp APOSTROPHE
          &kp A  &kp R  &kp S       &kp T      &kp G             &kp M    &kp N          &kp E       &kp I  &kp O
-&kp TAB  &kp Z  &kp X  &kp C       &kp D      &kp V             &kp K    &kp H          &colon      &dot   &kp FSLH        &kp TAB
+&kp TAB  &kp Z  &kp X  &kp C       &kp D      &kp V             &kp K    &kp H          &colon      &dot   &questionmark   &kp TAB
                        &kp ESCAPE  &kp SPACE  &sk LEFT_SHIFT    &kp RET  &kp BACKSPACE  &kp ESCAPE
             >;
         };
