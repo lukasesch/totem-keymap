@@ -304,6 +304,18 @@
             flavor = "balanced";
             hold-trigger-on-release;
         };
+
+        TabAero: TabAero {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TABAERO";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
+            flavor = "hold-preferred";
+        };
     };
 
     keymap {
@@ -328,10 +340,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                               &kp Q                &kp W                   &kp F                   &kp P                     &kp B             &kp J      &kp L                     &kp U                     &kp Y                   &kp APOSTROPHE
-                               &kp A                &kp R                   &kp S                   &kp T                     &kp G             &kp M      &kp N                     &kp E                     &kp I                   &kp O
-&HoldTapHRM LS(LA(LCTRL)) TAB  &HoldTapHRM RCTRL Z  &HoldTapHRM LEFT_ALT X  &HoldTapHRM LEFT_GUI C  &HoldTapHRM LEFT_SHIFT D  &kp V             &kp K      &HoldTapHRM LEFT_SHIFT H  &HoldTapColon LEFT_GUI 0  &HoldTapDot LEFT_ALT 0  &HoldTapQuestion LCTRL 0  &HoldTapHRM LS(LA(RCTRL)) TAB
-                                                                            &lt 4 ESCAPE            &lt 1 SPACE               &sk LEFT_SHIFT    &kp ENTER  &lt 2 BACKSPACE           &lt 1 ESCAPE
+                            &kp Q                &kp W                   &kp F                   &kp P                     &kp B             &kp J      &kp L                     &kp U                     &kp Y                   &kp APOSTROPHE
+                            &kp A                &kp R                   &kp S                   &kp T                     &kp G             &kp M      &kp N                     &kp E                     &kp I                   &kp O
+&TabAero LS(LA(LCTRL)) TAB  &HoldTapHRM RCTRL Z  &HoldTapHRM LEFT_ALT X  &HoldTapHRM LEFT_GUI C  &HoldTapHRM LEFT_SHIFT D  &kp V             &kp K      &HoldTapHRM LEFT_SHIFT H  &HoldTapColon LEFT_GUI 0  &HoldTapDot LEFT_ALT 0  &HoldTapQuestion LCTRL 0  &TabAero LS(LA(RCTRL)) TAB
+                                                                         &lt 4 ESCAPE            &lt 1 SPACE               &sk LEFT_SHIFT    &kp ENTER  &lt 2 BACKSPACE           &lt 1 ESCAPE
             >;
         };
 
