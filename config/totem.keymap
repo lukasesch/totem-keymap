@@ -33,46 +33,6 @@
     combos {
         compatible = "zmk,combos";
 
-        LS_Shift {
-            bindings = <&sk LEFT_SHIFT>;
-            key-positions = <13 24>;
-        };
-
-        LS_Command {
-            bindings = <&sk LEFT_COMMAND>;
-            key-positions = <12 23>;
-        };
-
-        LS_Option {
-            bindings = <&sk LEFT_ALT>;
-            key-positions = <11 22>;
-        };
-
-        LS_Ctrl {
-            bindings = <&sk LEFT_CONTROL>;
-            key-positions = <21 10>;
-        };
-
-        RS_Shift {
-            bindings = <&sk LEFT_SHIFT>;
-            key-positions = <16 27>;
-        };
-
-        RS_Command {
-            bindings = <&sk LEFT_COMMAND>;
-            key-positions = <17 28>;
-        };
-
-        RS_Option {
-            bindings = <&sk LEFT_ALT>;
-            key-positions = <18 29>;
-        };
-
-        RS_Ctrl {
-            bindings = <&sk LEFT_CONTROL>;
-            key-positions = <30 19>;
-        };
-
         Copy {
             bindings = <&kp LG(C)>;
             key-positions = <22 23>;
@@ -85,12 +45,12 @@
 
         Cut {
             bindings = <&kp LG(X)>;
-            key-positions = <22 23 24>;
+            key-positions = <22 24>;
         };
 
         CapsLock {
             bindings = <&kp CAPSLOCK>;
-            key-positions = <11 12 13>;
+            key-positions = <11 12 13 10>;
         };
 
         Hyper {
@@ -100,17 +60,137 @@
 
         Smileys {
             bindings = <&kp LC(LG(SPACE))>;
-            key-positions = <28 29>;
+            key-positions = <11 12>;
         };
 
         Spotlight {
             bindings = <&kp LG(SPACE)>;
-            key-positions = <28 27>;
+            key-positions = <12 13>;
         };
 
         PwdMngr {
             bindings = <&kp LG(LS(SPACE))>;
-            key-positions = <28 27 29>;
+            key-positions = <11 12 13>;
+        };
+
+        BracketOpen {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <6 7>;
+        };
+
+        BracketClosed {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <7 8>;
+        };
+
+        BraceOpen {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <16 17>;
+        };
+
+        BraceClosed {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <17 18>;
+        };
+
+        CurlyOpen {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <27 28>;
+        };
+
+        CurlyClosed {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <29 28>;
+        };
+
+        LesserThan {
+            bindings = <&kp LESS_THAN>;
+            key-positions = <15 16>;
+        };
+
+        GreaterThan {
+            bindings = <&kp GREATER_THAN>;
+            key-positions = <18 19>;
+        };
+
+        Caret {
+            bindings = <&kp CARET>;
+            key-positions = <5 15>;
+        };
+
+        Underscore {
+            bindings = <&kp UNDERSCORE>;
+            key-positions = <15 26>;
+        };
+
+        Plus {
+            bindings = <&kp PLUS>;
+            key-positions = <6 16>;
+        };
+
+        Minus {
+            bindings = <&kp MINUS>;
+            key-positions = <16 27>;
+        };
+
+        Asterix {
+            bindings = <&kp ASTERISK>;
+            key-positions = <7 17>;
+        };
+
+        Slash {
+            bindings = <&kp SLASH>;
+            key-positions = <17 28>;
+        };
+
+        Ampersand {
+            bindings = <&kp AMPERSAND>;
+            key-positions = <8 18>;
+        };
+
+        Pipe {
+            bindings = <&kp PIPE>;
+            key-positions = <18 29>;
+        };
+
+        At {
+            bindings = <&kp AT_SIGN>;
+            key-positions = <1 11>;
+        };
+
+        Hash {
+            bindings = <&kp HASH>;
+            key-positions = <2 12>;
+        };
+
+        Dollar {
+            bindings = <&kp DOLLAR>;
+            key-positions = <3 13>;
+        };
+
+        Percent {
+            bindings = <&kp PERCENT>;
+            key-positions = <4 14>;
+        };
+
+        Grave {
+            bindings = <&kp GRAVE>;
+            key-positions = <11 22>;
+        };
+
+        Backslash {
+            bindings = <&kp BACKSLASH>;
+            key-positions = <23 12>;
+        };
+
+        Equal {
+            bindings = <&kp EQUAL>;
+            key-positions = <13 24>;
+        };
+
+        Tilde {
+            bindings = <&kp TILDE>;
+            key-positions = <14 25>;
         };
     };
 
@@ -159,13 +239,17 @@
             mods = <(MOD_LSFT)>;
         };
 
-        HoldTap: HoldTap {
+        HoldTapHRM: HoldTapHRM {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLDTAP";
+            label = "HOLDTAPHRM";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-on-release;
         };
 
         Slash: Slash {
@@ -183,7 +267,11 @@
             bindings = <&kp>, <&dot>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <280>;
+            hold-trigger-on-release;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            quick-tap-ms = <175>;
         };
 
         HoldTapColon: HoldTapColon {
@@ -192,7 +280,11 @@
             bindings = <&kp>, <&colon>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-on-release;
         };
 
         HoldTapQuestion: HoldTapQuestion {
@@ -201,7 +293,11 @@
             bindings = <&kp>, <&questionmark>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-on-release;
         };
     };
 
@@ -227,10 +323,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                            &kp Q             &kp W                &kp F                &kp P                  &kp B             &kp J        &kp L                  &kp U                     &kp Y                   &kp APOSTROPHE
-                            &kp A             &kp R                &kp S                &kp T                  &kp G             &kp M        &kp N                  &kp E                     &kp I                   &kp O
-&HoldTap LS(LA(LCTRL)) TAB  &HoldTap RCTRL Z  &HoldTap LEFT_ALT X  &HoldTap LEFT_GUI C  &HoldTap LEFT_SHIFT D  &kp V             &kp K        &HoldTap LEFT_SHIFT H  &HoldTapColon LEFT_GUI 0  &HoldTapDot LEFT_ALT 0  &HoldTapQuestion LCTRL 0  &HoldTap LS(LA(RCTRL)) TAB
-                                                                   &lt 4 ESCAPE         &lt 1 SPACE            &sk LEFT_SHIFT    &lt 3 ENTER  &lt 2 BACKSPACE        &lt 1 ESCAPE
+                               &kp Q                &kp W                   &kp F                   &kp P                     &kp B             &kp J      &kp L                     &kp U                     &kp Y                   &kp APOSTROPHE
+                               &kp A                &kp R                   &kp S                   &kp T                     &kp G             &kp M      &kp N                     &kp E                     &kp I                   &kp O
+&HoldTapHRM LS(LA(LCTRL)) TAB  &HoldTapHRM RCTRL Z  &HoldTapHRM LEFT_ALT X  &HoldTapHRM LEFT_GUI C  &HoldTapHRM LEFT_SHIFT D  &kp V             &kp K      &HoldTapHRM LEFT_SHIFT H  &HoldTapColon LEFT_GUI 0  &HoldTapDot LEFT_ALT 0  &HoldTapQuestion LCTRL 0  &HoldTapHRM LS(LA(RCTRL)) TAB
+                                                                            &lt 4 ESCAPE            &lt 1 SPACE               &sk LEFT_SHIFT    &kp ENTER  &lt 2 BACKSPACE           &lt 1 ESCAPE
             >;
         };
 
