@@ -152,6 +152,15 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        Slash: Slash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SLASH";
+            bindings = <&kp SLASH>, <&kp BACKSLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -176,10 +185,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                            &kp Q  &kp W  &kp F         &kp P        &kp B             &kp J    &kp L            &kp U         &kp Y  &kp APOSTROPHE
-                            &kp A  &kp R  &kp S         &kp T        &kp G             &kp M    &kp N            &kp E         &kp I  &kp O
-&HoldTap LS(LA(LCTRL)) TAB  &kp Z  &kp X  &kp C         &kp D        &kp V             &kp K    &kp H            &colon        &dot   &questionmark   &HoldTap LS(LA(RCTRL)) TAB
-                                          &lt 3 ESCAPE  &lt 1 SPACE  &sk LEFT_SHIFT    &kp RET  &lt 2 BACKSPACE  &lt 1 ESCAPE
+                            &kp Q  &kp W  &kp F         &kp P        &kp B             &kp J        &kp L            &kp U         &kp Y  &kp APOSTROPHE
+                            &kp A  &kp R  &kp S         &kp T        &kp G             &kp M        &kp N            &kp E         &kp I  &kp O
+&HoldTap LS(LA(LCTRL)) TAB  &kp Z  &kp X  &kp C         &kp D        &kp V             &kp K        &kp H            &colon        &dot   &questionmark   &HoldTap LS(LA(RCTRL)) TAB
+                                          &lt 4 ESCAPE  &lt 1 SPACE  &sk LEFT_SHIFT    &lt 3 ENTER  &lt 2 BACKSPACE  &lt 1 ESCAPE
             >;
         };
 
@@ -196,13 +205,24 @@
 
         Numbers {
             bindings = <
-        &trans  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans        &trans  &trans  &trans  &trans  &trans
-        &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans        &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans        &trans  &trans  &trans  &trans  &trans  &trans
-                                 &trans           &kp KP_NUMBER_0  &kp KP_DOT    &trans  &trans  &trans
+        &kp LEFT_PARENTHESIS  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp RIGHT_PARENTHESIS    &trans  &trans  &trans  &trans  &trans
+        &kp MINUS             &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS                 &trans  &trans  &trans  &trans  &trans
+&trans  &kp SLASH             &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp ASTERISK             &trans  &trans  &trans  &trans  &trans  &trans
+                                               &kp COMMA        &kp KP_NUMBER_0  &kp KP_DOT               &trans  &trans  &trans
             >;
 
             label = "NUM";
+        };
+
+        Symbol {
+            bindings = <
+        &kp GRAVE  &kp LESS_THAN  &kp GREATER_THAN  &kp MINUS          &kp PIPE         &kp CARET    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR  &kp SQT
+        &trans     &kp ASTERISK   &Slash            &kp EQUAL          &kp AMPERSAND    &kp HASH     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none       &trans
+&trans  &kp TILDE  &kp PLUS       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp PERCENT      &kp AT_SIGN  &kp COLON             &colon                 &dot        &questionmark  &trans
+                                  &trans            &trans             &trans           &trans       &trans                &trans
+            >;
+
+            label = "SYM";
         };
 
         Utility {
@@ -214,30 +234,6 @@
             >;
 
             label = "UTIL";
-        };
-
-        sim_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "SYM";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-            //             ┃     !     ┃     @     ┃     #     ┃     $     ┃     %     ┃   ┃     ˆ     ┃     &     ┃     Ü     ┃     '     ┃     "     ┃
-            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-            //             ┃     Ä     ┃           ┃    SZ     ┃           ┃           ┃   ┃   MUTE    ┃   YEN     ┃   EURO    ┃  POUND    ┃     Ö     ┃
-            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-            // ┃           ┃  EMAIL1   ┃  EMAIL2   ┃           ┃           ┃           ┃   ┃   VOL-    ┃   VOL+    ┃   LAST    ┃   NEXT    ┃     \     ┃           ┃
-            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃           ┃    GIF    ┃    ADJ    ┃   ┃           ┃           ┃           ┃
-            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-
-            bindings = <
-        &kp EXCL     &kp AT       &kp HASH   &kp DLLR  &kp PRCNT    &kp CARET     &kp AMPS        &kp RA(U)   &kp SQT     &kp DQT
-        &kp RA(A)    &trans       &kp RA(S)  &trans    &trans       &kp C_MUTE    &kp LS(RA(N4))  &kp RA(N5)  &kp RA(N4)  &kp RA(O)
-&trans  &kp RA(F18)  &kp RA(F19)  &trans     &trans    &trans       &kp C_VOL_DN  &kp C_VOL_UP    &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
-                                  &trans     &gif      &mo 5        &trans        &kp C_PP        &trans
-            >;
         };
 
         adjust_layer {
