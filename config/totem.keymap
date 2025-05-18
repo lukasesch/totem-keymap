@@ -192,6 +192,11 @@
             bindings = <&kp TILDE>;
             key-positions = <14 25>;
         };
+
+        Mouseless {
+            bindings = <&kp F13>;
+            key-positions = <16 17 18>;
+        };
     };
 
     macros {
