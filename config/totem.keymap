@@ -97,6 +97,21 @@
             bindings = <&sk LS(LA(LC(LEFT_GUI)))>;
             key-positions = <20 31>;
         };
+
+        Smileys {
+            bindings = <&kp LC(LG(SPACE))>;
+            key-positions = <28 29>;
+        };
+
+        Spotlight {
+            bindings = <&kp LG(SPACE)>;
+            key-positions = <28 27>;
+        };
+
+        PwdMngr {
+            bindings = <&kp LG(LS(SPACE))>;
+            key-positions = <28 27 29>;
+        };
     };
 
     macros {
