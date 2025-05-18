@@ -92,6 +92,16 @@
             bindings = <&kp CAPSLOCK>;
             key-positions = <11 12 13>;
         };
+
+        LS_Hyper {
+            bindings = <&sk LS(LA(LCTRL))>;
+            key-positions = <14 25>;
+        };
+
+        RS_Hyper {
+            bindings = <&sk LS(LA(LCTRL))>;
+            key-positions = <15 26>;
+        };
     };
 
     macros {
@@ -138,6 +148,15 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        HoldTap: HoldTap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLDTAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <5>;
+        };
     };
 
     keymap {
@@ -162,10 +181,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-         &kp Q  &kp W  &kp F         &kp P        &kp B             &kp J    &kp L            &kp U         &kp Y  &kp APOSTROPHE
-         &kp A  &kp R  &kp S         &kp T        &kp G             &kp M    &kp N            &kp E         &kp I  &kp O
-&kp TAB  &kp Z  &kp X  &kp C         &kp D        &kp V             &kp K    &kp H            &colon        &dot   &questionmark   &kp TAB
-                       &lt 3 ESCAPE  &lt 1 SPACE  &sk LEFT_SHIFT    &kp RET  &lt 2 BACKSPACE  &lt 1 ESCAPE
+                            &kp Q  &kp W  &kp F         &kp P        &kp B             &kp J    &kp L            &kp U         &kp Y  &kp APOSTROPHE
+                            &kp A  &kp R  &kp S         &kp T        &kp G             &kp M    &kp N            &kp E         &kp I  &kp O
+&HoldTap LS(LA(LCTRL)) TAB  &kp Z  &kp X  &kp C         &kp D        &kp V             &kp K    &kp H            &colon        &dot   &questionmark   &HoldTap LS(LA(RCTRL)) TAB
+                                          &lt 3 ESCAPE  &lt 1 SPACE  &sk LEFT_SHIFT    &kp RET  &lt 2 BACKSPACE  &lt 1 ESCAPE
             >;
         };
 
