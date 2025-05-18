@@ -176,6 +176,33 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        HoldTapDot: HoldTapDot {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLDTAPDOT";
+            bindings = <&kp>, <&dot>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        HoldTapColon: HoldTapColon {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLDTAPCOLON";
+            bindings = <&kp>, <&colon>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        HoldTapQuestion: HoldTapQuestion {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLDTAPQUESTION";
+            bindings = <&kp>, <&questionmark>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -200,10 +227,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                            &kp Q  &kp W  &kp F         &kp P        &kp B             &kp J        &kp L            &kp U         &kp Y  &kp APOSTROPHE
-                            &kp A  &kp R  &kp S         &kp T        &kp G             &kp M        &kp N            &kp E         &kp I  &kp O
-&HoldTap LS(LA(LCTRL)) TAB  &kp Z  &kp X  &kp C         &kp D        &kp V             &kp K        &kp H            &colon        &dot   &questionmark   &HoldTap LS(LA(RCTRL)) TAB
-                                          &lt 4 ESCAPE  &lt 1 SPACE  &sk LEFT_SHIFT    &lt 3 ENTER  &lt 2 BACKSPACE  &lt 1 ESCAPE
+                            &kp Q             &kp W                &kp F                &kp P                  &kp B             &kp J        &kp L                  &kp U                     &kp Y                   &kp APOSTROPHE
+                            &kp A             &kp R                &kp S                &kp T                  &kp G             &kp M        &kp N                  &kp E                     &kp I                   &kp O
+&HoldTap LS(LA(LCTRL)) TAB  &HoldTap RCTRL Z  &HoldTap LEFT_ALT X  &HoldTap LEFT_GUI C  &HoldTap LEFT_SHIFT D  &kp V             &kp K        &HoldTap LEFT_SHIFT H  &HoldTapColon LEFT_GUI 0  &HoldTapDot LEFT_ALT 0  &HoldTapQuestion LCTRL 0  &HoldTap LS(LA(RCTRL)) TAB
+                                                                   &lt 4 ESCAPE         &lt 1 SPACE            &sk LEFT_SHIFT    &lt 3 ENTER  &lt 2 BACKSPACE        &lt 1 ESCAPE
             >;
         };
 
