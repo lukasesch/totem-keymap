@@ -93,14 +93,9 @@
             key-positions = <11 12 13>;
         };
 
-        LS_Hyper {
-            bindings = <&sk LS(LA(LCTRL))>;
-            key-positions = <14 25>;
-        };
-
-        RS_Hyper {
-            bindings = <&sk LS(LA(LCTRL))>;
-            key-positions = <15 26>;
+        Hyper {
+            bindings = <&sk LS(LA(LC(LEFT_GUI)))>;
+            key-positions = <20 31>;
         };
     };
 
