@@ -55,7 +55,7 @@
 
         Hyper {
             bindings = <&sk LS(LA(LC(LEFT_GUI)))>;
-            key-positions = <20 31>;
+            key-positions = <20 33>;
         };
 
         Smileys {
