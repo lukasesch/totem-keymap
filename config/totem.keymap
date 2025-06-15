@@ -29,6 +29,8 @@
     tapping-term-ms = <170>;
 };
 
+&lt { quick-tap-ms = <150>; };
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -91,6 +93,7 @@
         BraceClosed {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <17 18>;
+            timeout-ms = <40>;
         };
 
         CurlyOpen {
