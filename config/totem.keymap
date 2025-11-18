@@ -368,10 +368,10 @@
 
         Navigation {
             bindings = <
-              &trans  &kp LS(LA(LC(D)))         &kp LS(LA(LC(S)))         &kp LS(LA(LC(A)))         &trans    &trans  &kp HOME  &kp UP_ARROW  &kp END    &trans
-              &trans  &kp LS(LC(LA(NUMBER_4)))  &kp LS(LA(LC(N5)))        &kp LS(LA(LC(NUMBER_6)))  &trans    &trans  &kp LEFT  &kp DOWN      &kp RIGHT  &trans
-&kp LEFT_GUI  &trans  &kp LS(LA(LC(NUMBER_1)))  &kp LS(LA(LC(NUMBER_2)))  &kp LS(LA(LC(NUMBER_3)))  &trans    &trans  &trans    &trans        &trans     &trans  &trans
-                                                &trans                    &trans                    &trans    &trans  &trans    &trans
+              &trans  &kp LS(LA(LC(D)))                          &kp LS(LA(LC(S)))                          &kp LS(LA(LC(A)))                            &trans    &trans  &kp HOME  &kp UP_ARROW  &kp END    &trans
+              &trans  &kp LS(LC(LA(NUMBER_4)))                   &kp LS(LA(LC(N5)))                         &kp LS(LA(LC(NUMBER_6)))                     &trans    &trans  &kp LEFT  &kp DOWN      &kp RIGHT  &trans
+&kp LEFT_GUI  &trans  &HoldTapHRM LEFT_ALT LS(LA(LC(NUMBER_1)))  &HoldTapHRM LEFT_GUI LS(LA(LC(NUMBER_2)))  &HoldTapHRM LEFT_SHIFT LS(LA(LC(NUMBER_3)))  &trans    &trans  &trans    &trans        &trans     &trans  &trans
+                                                                 &trans                                     &trans                                       &trans    &trans  &trans    &trans
             >;
 
             label = "NAV";
